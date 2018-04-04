@@ -1,0 +1,36 @@
+ARG ARCH=frommakefile
+ARG DOCKERSRC=frommakefile
+ARG USERNAME=frommakefile
+#
+FROM ${USERNAME}/${DOCKERSRC}:${ARCH}
+#
+ARG PUID=1001
+ARG PGID=1001
+#
+RUN set -xe \
+    && addgroup -g ${PGID} -S alpine \
+    && adduser -u ${PUID} -G alpine -h /home/alpine -D alpine \
+    && echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
+    && echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
+    && apk add --no-cache --purge -uU \
+        curl unzip zlib-dev musl \
+        alsa-utils alsa-plugins-pulse \
+        mesa-gl mesa-dri-swrast \
+        pulseaudio udev \
+        chromium \
+        libcanberra-gtk3 libstdc++ libexif libgcc dbus-x11 \
+    && addgroup pulse \
+    && adduser alpine audio \
+    && adduser alpine video \
+    && adduser alpine pulse \
+    && rm -rf /var/cache/apk/* /tmp/*
+#
+VOLUME /home/alpine/
+#
+USER alpine
+WORKDIR /home/alpine/
+#
+ENTRYPOINT ["/usr/bin/chromium-browser"]
+# ENTRYPOINT ["/bin/bash"]
+# ENTRYPOINT ["/init"]
+# CMD ["--no-sandbox"]

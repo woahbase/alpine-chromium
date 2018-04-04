@@ -105,7 +105,7 @@ stop :
 
 test : # test armhf on real devices
 	if [ "$(HOSTARCH)" = "armhf" ] || [ "$(ARCH)" != "armhf"  ]; then \
-		docker run --rm -it $(NAMEFLAGS) $(RUNFLAGS) $(PORTFLAGS) $(MOUNTFLAGS) $(OTHERFLAGS) $(IMAGETAG) "--version"; \
+		docker run --rm -it $(NAMEFLAGS) $(IMAGETAG) "--version"; \
 	fi;
 
 # -- }}}
