@@ -10,12 +10,12 @@ Based on [Alpine Linux][131] from my [alpine-glibc][132] image with
 the [s6][133] init system [overlayed][134] in it.
 
 The image is tagged respectively for the following architectures,
-* **armhf**
+* ~~**armhf**~~
 * **x86_64** (retagged as the `latest` )
 
-**armhf** builds have embedded binfmt_misc support and contain the
-[qemu-user-static][105] binary that allows for running it also inside
-an x64 environment that has it.
+~~**armhf** builds have embedded binfmt_misc support and contain the~~
+~~[qemu-user-static][105] binary that allows for running it also inside~~
+~~an x64 environment that has it.~~
 
 ---
 #### Get the Image
