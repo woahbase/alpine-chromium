@@ -39,7 +39,7 @@ CACHEFLAGS := --no-cache=true --pull
 
 MOUNTFLAGS := -v $(CURDIR)/data:/home/alpine \
 	-v /tmp/.X11-unix:/tmp/.X11-unix \
-	-v /var/run/dbus:/var/run/dbus \
+	# -v /var/run/dbus:/var/run/dbus \
 	# -v /dev/shm:/dev/shm# mount in local
 	# -v /dev/dri:/dev/dri
 
