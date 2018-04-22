@@ -18,7 +18,7 @@ RUN set -xe \
         mesa-gl mesa-dri-swrast \
         pulseaudio udev \
         chromium \
-        libcanberra-gtk3 libstdc++ libexif libgcc dbus-x11 \
+        libcanberra-gtk3 libstdc++ libexif libgcc dbus-x11 json-c \
     && addgroup pulse \
     && adduser alpine audio \
     && adduser alpine video \
