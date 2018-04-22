@@ -10,6 +10,7 @@ ARG PGID=1000
 RUN set -xe \
     && addgroup -g ${PGID} -S alpine \
     && adduser -u ${PUID} -G alpine -h /home/alpine -D alpine \
+    && echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories \
     && echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
     && echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
     && apk add --no-cache --purge -uU \
@@ -18,7 +19,7 @@ RUN set -xe \
         mesa-gl mesa-dri-swrast \
         pulseaudio udev \
         chromium \
-        libcanberra-gtk3 libstdc++ libexif libgcc dbus-x11 json-c \
+        libcanberra-gtk3 libstdc++ libexif libgcc dbus-x11 \
     && addgroup pulse \
     && adduser alpine audio \
     && adduser alpine video \
