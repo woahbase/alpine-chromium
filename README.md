@@ -63,6 +63,10 @@ Before you run..
   server, to use `/dev/snd` (or alsa), need to update
   `/home/alpine/.asoundrc`.
 
+* If docker is not allowed to access the local X-server running on
+  the host, make sure `DISPLAY` is exported and also, might need
+  to run `xhost +local:docker`.
+
 * Default cmd runs with sandboxing enabled using the
   `--cap-add=SYS_ADMIN`. To run in non-sandboxed mode, remove it
   and pass `--no-sandbox` when running, or get JessFrazelle's
@@ -116,14 +120,14 @@ docker restart docker_chromium
 Get a shell inside a already running container,
 
 ```
-# make shell
+# make debug
 docker exec -it docker_chromium /bin/bash
 ```
 
 set user or login as root,
 
 ```
-# make rshell
+# make rdebug
 docker exec -u root -it docker_chromium /bin/bash
 ```
 
@@ -173,11 +177,9 @@ for other architectures.]
 docker build --rm --compress --force-rm \
   --no-cache=true --pull \
   -f ./Dockerfile_x86_64 \
-  --build-arg ARCH=x86_64 \
-  --build-arg DOCKERSRC=alpine-glibc \
+  --build-arg DOCKERSRC=woahbase/alpine-glibc:x86_64 \
   --build-arg PGID=1000 \
   --build-arg PUID=1000 \
-  --build-arg USERNAME=woahbase \
   -t woahbase/alpine-chromium:x86_64 \
   .
 ```
