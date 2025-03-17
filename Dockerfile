@@ -8,16 +8,16 @@ RUN set -xe \
     && addgroup pulse \
 #
     # # if needed, use an older repository for an older version, e.g.
-    && REPO=3.20 \
-    && { \
-        echo "http://dl-cdn.alpinelinux.org/alpine/v${REPO}/main"; \
-        echo "http://dl-cdn.alpinelinux.org/alpine/v${REPO}/community"; \
-    } > /tmp/repo${REPO} \
-    && apk add --no-cache \
-        --repositories-file "/tmp/repo${REPO}" \
+    # && REPO=3.20 \
+    # && { \
+    #     echo "http://dl-cdn.alpinelinux.org/alpine/v${REPO}/main"; \
+    #     echo "http://dl-cdn.alpinelinux.org/alpine/v${REPO}/community"; \
+    # } > /tmp/repo${REPO} \
+    # && apk add --no-cache \
+    #     --repositories-file "/tmp/repo${REPO}" \
 #
     # # or get the current available packages with
-    # && apk add --no-cache --purge -uU \
+    && apk add --no-cache --purge -uU \
         alsa-plugins-pulse \
         alsa-utils \
         dbus-x11 \
