@@ -8,7 +8,7 @@ RUN set -xe \
     && addgroup pulse \
 #
     # # if needed, use an older repository for an older version, e.g.
-    && REPO=3.13 \
+    && REPO=3.14 \
     && { \
         echo "http://dl-cdn.alpinelinux.org/alpine/v${REPO}/main"; \
         echo "http://dl-cdn.alpinelinux.org/alpine/v${REPO}/community"; \
@@ -40,12 +40,12 @@ RUN set -xe \
 #
         chromium \
         # angle available since 3.14, unavailable since v3.17
-        # chromium-angle \
+        chromium-angle \
         chromium-chromedriver \
         # # qt5 shim available since v3.18
         # chromium-qt5 \
         # swiftshader available since 3.14
-        # chromium-swiftshader \
+        chromium-swiftshader \
 #
     && rm -rf /var/cache/apk/* /tmp/*
 #
