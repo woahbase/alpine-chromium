@@ -8,7 +8,7 @@ RUN set -xe \
     && addgroup pulse \
 #
     # # if needed, use an older repository for an older version, e.g.
-    && REPO=3.19 \
+    && REPO=3.18 \
     && { \
         echo "http://dl-cdn.alpinelinux.org/alpine/v${REPO}/main"; \
         echo "http://dl-cdn.alpinelinux.org/alpine/v${REPO}/community"; \
@@ -57,5 +57,5 @@ VOLUME /home/${S6_USER:-alpine}/ /home/${S6_USER:-alpine}/Downloads/
 #
 ENTRYPOINT ["/usershell"]
 #
-# CMD ["/usr/bin/chromium-browser"]
-CMD ["/usr/bin/chromium-browser", "--no-sandbox"]
+CMD ["/usr/bin/chromium-browser"]
+# CMD ["/usr/bin/chromium-browser", "--no-sandbox"]
