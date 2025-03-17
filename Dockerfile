@@ -8,7 +8,7 @@ RUN set -xe \
     && addgroup pulse \
 #
     # # if needed, use an older repository for an older version, e.g.
-    && REPO=3.17 \
+    && REPO=3.15 \
     && { \
         echo "http://dl-cdn.alpinelinux.org/alpine/v${REPO}/main"; \
         echo "http://dl-cdn.alpinelinux.org/alpine/v${REPO}/community"; \
@@ -40,7 +40,7 @@ RUN set -xe \
 #
         chromium \
         # angle available since 3.14, unavailable since v3.17
-        # chromium-angle \
+        chromium-angle \
         chromium-chromedriver \
         # # qt5 shim available since v3.18
         # chromium-qt5 \
