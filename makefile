@@ -30,7 +30,7 @@ TESTCMD   := \
 	chromedriver --version;
 	#
 
-# repo v3.19 has no build for armhf
+# repo v3.20 has no build for armhf
 SKIP_armhf  := 1
 # -- }}}
 
