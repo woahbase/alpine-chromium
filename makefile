@@ -29,7 +29,7 @@ TESTCMD   := \
 	chromium-browser --version; \
 	#
 
-# repo v3.14 has no build for arm32
+# repo v3.15 has no build for arm32
 SKIP_armhf  := 1
 SKIP_armv7l := 1
 # -- }}}
