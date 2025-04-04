@@ -31,7 +31,7 @@ RUN set -xe \
         mesa-gl \
         mesa-va-gallium \
         # # swrast available since v3.17
-        # mesa-vulkan-swrast \
+        mesa-vulkan-swrast \
         pango \
         pulseaudio \
         udev \
