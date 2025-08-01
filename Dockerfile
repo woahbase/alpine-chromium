@@ -8,13 +8,12 @@ RUN set -xe \
     && addgroup pulse \
 #
     # # if needed, use an older repository for an older version, e.g.
-    # && REPO=3.20 \
-    # && { \
-    #     echo "http://dl-cdn.alpinelinux.org/alpine/v${REPO}/main"; \
-    #     echo "http://dl-cdn.alpinelinux.org/alpine/v${REPO}/community"; \
-    # } > /tmp/repo${REPO} \
+    # && { REPO=v3.21; \
+    #     echo "http://dl-cdn.alpinelinux.org/alpine/${REPO}/main"; \
+    #     echo "http://dl-cdn.alpinelinux.org/alpine/${REPO}/community"; \
+    # } > /tmp/repo \
     # && apk add --no-cache \
-    #     --repositories-file "/tmp/repo${REPO}" \
+    #     --repositories-file /tmp/repo \
 #
     # # or get the current available packages with
     && apk add --no-cache --purge -uU \
@@ -43,7 +42,9 @@ RUN set -xe \
         # chromium-angle \
         chromium-chromedriver \
         # # qt5 shim available since v3.18
-        chromium-qt5 \
+        # chromium-qt5 \
+        # # qt6 shim available since v3.22
+        chromium-qt6 \
         # swiftshader available since 3.14
         chromium-swiftshader \
 #
